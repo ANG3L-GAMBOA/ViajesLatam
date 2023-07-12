@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\sln_demo.props" />
+</Project>

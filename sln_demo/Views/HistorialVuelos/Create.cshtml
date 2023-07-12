@@ -1,0 +1,74 @@
+﻿@model sln_demo.Models.HistorialVuelos
+@{
+    ViewData["Title"] = "Registrar Vuelo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registrar Vuelo</h1>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <a class="btn btn-success" asp-controller="HistorialVuelos" asp-action="Index">Regresar</a>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="fecha_vuelo" class="control-label"></label>
+                    <input asp-for="fecha_vuelo" class="form-control" />
+                    <span asp-validation-for="fecha_vuelo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="origen" class="control-label"></label>
+                    <input asp-for="origen" class="form-control" />
+                    <span asp-validation-for="origen" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="destino" class="control-label"></label>
+                    <input asp-for="destino" class="form-control" />
+                    <span asp-validation-for="destino" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="duracion" class="control-label"></label>
+                    <input asp-for="duracion" class="form-control" />
+                    <span asp-validation-for="duracion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="aeronave_id" class="control-label"></label>
+                    <input asp-for="aeronave_id" class="form-control" />
+                    <span asp-validation-for="aeronave_id" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="piloto_id" class="control-label"></label>
+                    <input asp-for="piloto_id" class="form-control" />
+                    <span asp-validation-for="piloto_id" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Guardar Datos" class="btn btn-outline-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

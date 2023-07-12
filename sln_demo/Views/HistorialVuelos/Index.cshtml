@@ -1,0 +1,58 @@
+﻿@model IEnumerable<sln_demo.Models.HistorialVuelos>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <a class="btn btn-success" asp-action="Create" asp-controller="HistorialVuelos">Agregar Vuelo</a>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.fecha_vuelo)</td>
+                        <td>@Html.DisplayNameFor(m => m.origen)</td>
+                        <td>@Html.DisplayNameFor(m => m.destino)</td>
+                        <td>@Html.DisplayNameFor(m => m.duracion)</td>
+                        <td>@Html.DisplayNameFor(m => m.aeronave_id)</td>
+                        <td>@Html.DisplayNameFor(m => m.piloto_id)</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var reg in Model)
+                    {
+                        <tr>
+                            <td>@reg.fecha_vuelo</td>
+                            <td>@reg.origen</td>
+                            <td>@reg.destino</td>
+                            <td>@reg.duracion</td>
+                            <td>@reg.aeronave_id</td>
+                            <td>@reg.piloto_id</td>
+                            <td>
+                                <a asp-controller="HistorialVuelos" asp-action="Edit" asp-route-id="@reg." class="btn btn-outline-warning btn-sm">Editar</a>
+                                <a asp-controller="HistorialVuelos" asp-action="Delete" asp-route-id="@reg." class="btn btn-outline-danger btn-sm">Borrar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p>No existen registros</p>
+        }
+    </div>
+</div>

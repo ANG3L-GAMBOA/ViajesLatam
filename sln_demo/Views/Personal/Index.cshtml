@@ -1,0 +1,59 @@
+﻿@model IEnumerable<sln_demo.Models.Personal>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+  <div class="row">
+
+      <div class="col-sm-3">
+          <a class="btn btn-success" asp-action="Create" asp-controller="Personal">Agregar Personal</a>
+      </div>
+  </div>
+
+  <br/>
+
+  <div class="row">
+
+      @if (Model.Count() > 0)
+       {
+          <table class="table table-striped">
+              <thead>
+                   <tr>
+                      <td>@Html.DisplayNameFor(m => m.dni)</td>
+                      <td>@Html.DisplayNameFor(m => m.nombre)</td>
+                      <td>@Html.DisplayNameFor(m => m.ap_paterno)</td>
+                      <td>@Html.DisplayNameFor(m => m.ap_materno)</td>
+                      <td>@Html.DisplayNameFor(m => m.fecha_nacimiento)</td>
+                      <td>@Html.DisplayNameFor(m => m.genero)</td>
+                      <td>Acciones</td>
+                   </tr>
+              </thead>
+
+              <tbody>
+                   @foreach (var reg in Model)
+                   {
+                   <tr>
+                      <td>@reg.dni</td>
+                      <td>@reg.nombre</td>
+                      <td>@reg.ap_paterno</td>
+                      <td>@reg.ap_materno</td>
+                      <td>@reg.fecha_nacimiento</td>
+                      <td>@reg.genero</td>
+                      <td>
+                           <a asp-controller="Personal" asp-action="Edit" asp-route-id="@reg.dni" class="btn btn-outline-warning btn-sm">Editar</a>
+                           <a asp-controller="Personal" asp-action="Delete" asp-route-id="@reg.dni" class="btn btn-outline-danger btn-sm">Borrar</a>
+                       </td>
+                   </tr>
+                   }
+              </tbody>
+          </table>
+
+       } else
+       {
+          <p>No existen registros</p>
+       }
+   </div>
+
+</div>

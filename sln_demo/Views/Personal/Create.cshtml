@@ -1,0 +1,117 @@
+﻿@model sln_demo.Models.Personal
+@{
+    ViewData["Title"] = "Registrar Personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registrar Personal</h1>
+<hr/>
+
+<div class="container">
+
+  <div class="row">
+
+      <div class="col-sm-3">
+
+          <a class="btn btn-success" asp-controller="Personal" asp-action="Index">Regresar</a>
+
+      </div>
+
+  </div>
+
+ 
+
+  <br />
+
+ 
+
+  <div class="row justify-content-center">
+
+      <div class="col-md-4">
+
+          <form method="post" asp-action="Create">
+
+              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+              <div class="form-group">
+
+                   <label asp-for="dni" class="control-label"></label>
+
+                   <input asp-for="dni" class="form-control" />
+
+                   <span asp-validation-for="dni" class="text-danger"></span>
+
+              </div>
+
+              <div class="form-group">
+
+                   <label asp-for="nombre" class="control-label"></label>
+
+                   <input asp-for="nombre" class="form-control" />
+
+                   <span asp-validation-for="nombre" class="text-danger"></span>
+
+              </div>
+
+              <div class="form-group">
+
+                   <label asp-for="ap_paterno" class="control-label"></label>
+
+                   <input asp-for="ap_paterno" class="form-control" />
+
+                   <span asp-validation-for="ap_paterno" class="text-danger"></span>
+
+              </div>
+
+              <div class="form-group">
+
+                   <label asp-for="ap_materno" class="control-label"></label>
+
+                   <input asp-for="ap_materno" class="form-control" />
+
+                   <span asp-validation-for="ap_materno" class="text-danger"></span>
+
+              </div>
+
+              <div class="form-group">
+
+                   <label asp-for="fecha_nacimiento" class="control-label"></label>
+
+                   <input asp-for="fecha_nacimiento" class="form-control" />
+
+                   <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
+
+              </div>
+
+              <div class="form-group">
+
+                   <label asp-for="genero" class="control-label"></label>
+
+                   <input asp-for="genero" class="form-control" />
+
+                   <span asp-validation-for="genero" class="text-danger"></span>
+
+              </div>
+
+              <div class="form-group">
+
+                   <input type="submit" value="Guardar Datos" class="btn btn-outline-primary" />
+
+              </div>
+
+          </form>
+
+      </div>
+
+  </div>
+
+</div>
+
+ 
+
+@section Scripts{ 
+
+   @{ <partial name="_ValidationScriptsPartial" />}
+
+}
+
